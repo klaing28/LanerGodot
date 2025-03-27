@@ -1,0 +1,4 @@
+res://Levels/level.tscn
+res://Characters/basicMate.tscn
+res://Cameraig.tscn
+res://Levels/RTS_Camera.gd

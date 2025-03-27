@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkeyiky8eku7"]
+
+[ext_resource type="Script" path="res://Characters/MateMoves.gd" id="1_hyial"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul8c1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_onc4d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwc36"]
+albedo_color = Color(0.784314, 0.686275, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 1, 0, 0, 0, 0.45, 0, 0, 0)
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_hyial")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 2, 0, 0, 0, 0.9, 0, 1, 0)
+shape = SubResource("BoxShape3D_ul8c1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_onc4d")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_xwc36")

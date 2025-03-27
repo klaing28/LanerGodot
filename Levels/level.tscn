@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy3yj51fpdddg"]
+
+[ext_resource type="Script" path="res://Levels/RTS_Camera.gd" id="2_yak2r"]
+[ext_resource type="Script" path="res://Levels/Node3D.gd" id="3_vqxfc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esd0e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0mw7"]
+
+[sub_resource type="Environment" id="Environment_kfqa4"]
+background_energy_multiplier = 3.36
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.73
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l583q"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Plane" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
+shape = SubResource("BoxShape3D_esd0e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
+mesh = SubResource("BoxMesh_j0mw7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kfqa4")
+camera_attributes = SubResource("CameraAttributesPractical_l583q")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("3_vqxfc")
+
+[node name="Button" type="Button" parent="Node3D"]
+offset_right = 271.0
+offset_bottom = 99.0
+text = "Press to spawn"
+
+[node name="Camera_base" type="Node3D" parent="."]
+script = ExtResource("2_yak2r")
+
+[node name="Camera_socket" type="Node3D" parent="Camera_base"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_base/Camera_socket"]
+
+[connection signal="pressed" from="Node3D/Button" to="Node3D" method="_on_button_pressed"]
