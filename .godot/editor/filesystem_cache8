@@ -1,9 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743102053
+::res://::1743269031
 Cameraig.gd::GDScript::-1::1720370820::0::1::::<>CharacterBody3D<>::
 Cameraig.tscn::PackedScene::1974717990291123728::1741461351::0::1::::<><>::
 icon.svg::CompressedTexture2D::8694777590505408289::1719870239::1719870248::1::::<><>::
 level.gdshader::Shader::-1::1719873897::0::1::::<><>::
+README.md::TextFile::-1::1743102366::0::1::::<><>::
 ::res://Characters/::1741461351
 basicMate.tscn::PackedScene::91118784972977568::1741461351::0::1::::<><>::res://Characters/MateMoves.gd
 MateMoves.gd::GDScript::-1::1720368093::0::1::::<>Node3D<>::
